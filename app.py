@@ -9,7 +9,7 @@ def index():
 @app.route('/', methods=['POST'])
 def   form():
 	field = request.form['field']
-	return render_template('index.html', title="Form sample",  message="こんにちはは、%s さん！" % field)
+	return render_template('index.html', title="Form sample",  message="こんにちははは、%s さん！" % field)
 
 if __name__ == '__main__':
 	app.debug = True
