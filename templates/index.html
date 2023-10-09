@@ -5,14 +5,19 @@
         <meta name="description" content="ポイントカード照会システム">
         <meta name="author" content="zawatan0111">
         <meta name="copyright" content="zawatan0111">
-        <link href="css/profile.css" rel="stylesheet" type="text/css"/>
+        <link href="" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <h1>ポイントカード照会ページ</h1>
+        <h1>{{title}}</h1>
         <a href="price.html">価格照会ページへはこちら</a>
-        <a href="login.html">ログアウトボタン</a>
-        <h2>ポイントカード番号　or UserID</h2>
-        <h2>保有ポイント：</h2>
+        <a href="">ログアウトボタン</a>
+        <h2>{{message}}</h2>
+        <div>
+            <form method="post" action="/">
+                <input type="text" name="field">
+                <input type="submit">
+            </form>
+        </div>
         <h2>レシート検索</h2>
         <a>絞り込み</a>
         <table class="">
