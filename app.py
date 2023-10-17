@@ -12,6 +12,7 @@ def form():
 	field = request.form['field']
 	return render_template('index.html', title="%s さんのポイントカード照会ページ" % field,  message="保有ポイント : ")
 
+
 @app.route('/form_1', methods=['GET'])
 def form_1():
     return render_template('form_1.html')
@@ -25,6 +26,7 @@ def form_1_P():
 @app.route('/price')
 def price():
     return render_template('price.html')
+
 
 #pythonで実行されたときに処理をする
 if __name__ == '__main__':
