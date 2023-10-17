@@ -20,8 +20,7 @@ def form_1():
 @app.route('/form_1', methods=['POST'])
 def form_1_P():
     content = request.form['content']
-    return render_template('form_1_request.html')
-
+    return render_template('form_1_request.html', form_1_content="%s" % content)
 
 @app.route('/price')
 def price():
