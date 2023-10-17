@@ -1,17 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
     <head>
         <meta charset="utf-8">
         <meta name="description" content="ポイントカード照会システム">
         <meta name="author" content="zawatan0111">
         <meta name="copyright" content="zawatan0111">
-        <link href="" rel="stylesheet" type="text/css"/>
+        <link href="../static/index.css" rel="stylesheet" type="text/css"/>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <title>スーパーポイント照会</title>
     </head>
     <body>
 
         <h1>{{title}}</h1>
-        <a href="price.html">価格照会ページへはこちら</a>
-        <a href="">ログアウトボタン</a>
+        <a href="/price">価格照会ページへはこちら</a>
+        <a href="/">ログアウトボタン</a>
+        <a href="/form_1">お問い合わせフォーム</a>
         <h2>{{message}}</h2>
         <div>
             <form method="post" action="/">
@@ -19,7 +22,7 @@
                 <input type="submit">
             </form>
         </div>
-        
+
         <h2>レシート検索</h2>
         <a>絞り込み</a>
         <table class="">
