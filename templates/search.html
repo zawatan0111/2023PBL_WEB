@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="ポイントカード照会システム">
+        <meta name="author" content="zawatan0111">
+        <meta name="copyright" content="zawatan0111">
+        <link href="../static/search.css" rel="stylesheet" type="text/css"/>
+        <title>レシート照会</title>
+    </head>
+
+    <body>
+        <table>
+            <form method="GET" action="api/result">
+                <tr>
+                    <td>購入日時</td>
+                </tr>
+                <tr>
+                    <td><input type="date" buy_date="buy_date"></td>
+                    <td><input type="submit" value="検索"></td>
+                </tr>
+            </form>
+        </table>
+    </body>
+</html>
