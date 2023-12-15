@@ -32,3 +32,33 @@ if __name__ == '__main__':
 	app.debug = True
 	app.run(host='localhost') 
 
+#DB
+import MySQLdb
+
+#def connect():      
+con = MySQLdb.connect(
+	host = "localhost",
+	user = "root",
+	passwd = "20030111",
+	db = "super_point"
+)
+#	return con
+
+#con = connect()
+
+cur = con.cursor()
+
+cur.execute("""
+			CREATE TABLE super_point.user(
+            id MEDIUMINT NOT NULL AUTO_INCREMENT,
+            user_name VARCHAR(30),
+            password VARCHAR(30),
+            phone_number VARCHAR(30),
+            mail_address VARCHAR(50),
+            user_point int(5),
+            PRIMARY KEY(id))
+            """)
+
+con.commit()
+
+con.close()
