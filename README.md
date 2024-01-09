@@ -6,43 +6,44 @@
 
 ```mermaid
 erDiagram
-    user{
+    users{
         int user_id PK
-        string user_name "ユーザ名"
-        string password "ログイン用パスワード"
-        string phone_number "電話番号"
-        string address "住所"
-        int point "保有ポイント"
+        string user_pcard_number "ポイントカード番号"
+        string user_email "メールアドレス"
+        string user_name "氏名"
+        string user_phone_number "携帯電話番号"
+        string user_password "ログイン用パスワード"      
+        int user_point "保有ポイント"
+        int user_point_ticket_all "累計ポイント券枚数"
+        string user_admin "ユーザor管理者"
     }
 
-    buy_receipt{
+    buy_receipts{
         int receipt_id PK
         int user_id FK
-        datetime buy_date "購入日時"
+        date buy_date "購入日"
+        time buy_time "購入時"
         int register_number "レジ番号"
         int receipt_number "レシート番号"
         int total_price_no_tax "小計"
         int total_price "合計"
         int buy_count "購入商品点数"
         string payment_method "支払方法"
-        int input_amount "投入金額"
-        int output_change "お釣り金額"
+        int input_money "投入金額"
+        int output_money "お釣り金額"
         int point_new "発生ポイント"
         int point_now "残高ポイント"
-        int point_ticket "ポイント券発券枚数"
+        int point_ticket "発生ポイント券枚数"
     }
 
-    buy_detail{
+    buy_details{
         int detail_id PK
         int receipt_id FK
         int item_id FK
-        int detail_price_no_tax "単価"
-        int detail_price "税込価格"
-        int detail_tax_rate "税率"
         int detail_number "個数"
     }
 
-    item{
+    items{
         int item_id PK
         string barcode "バーコード"
         int category_number "部門番号"
@@ -51,19 +52,18 @@ erDiagram
         int price "税込価格"
         int tax_rate "税率"
         int stock_number "在庫数"
-        int m_id FK "まとめ売りID"
     }
 
-    matome{
-        int m_id PK
-        int m_price "まとめ売り後単価"
-        int m_permit_number "まとめ売り有効個数"
+    customerforms{
+        int cf_id PK
+        int user_id FK
+        text form
     }
 
-user ||--o{ buy_receipt : ""
-buy_receipt ||--o{ buy_detail : ""
-item ||--o{ buy_detail : ""
-item ||--o| matome : ""
+users ||--o{ buy_receipts : ""
+users ||--o{ customerforms : ""
+buy_receipts ||--o{ buy_details : ""
+items ||--o{ buy_details : ""
 
 ```
 
