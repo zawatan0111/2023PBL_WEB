@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+    <html>
         <head>
             <meta charset="UTF-8">
             <meta name="description" content="スーパー まいぽけっと">
@@ -16,32 +16,22 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" type="text/javascript"></script>
             <script src="../static/js/button.js" type="text/javascript"></script>
             <script src="../static/js/scroll.js" type="text/javascript"></script>
-            <title>まいぽけっと -送信完了-</title>
+            <title>まいぽけっと -ログアウト-</title>
         </head>
+
         <body>
             <div id="container">
                 <header>
                     <h1 class="an-fadeD">
                         <a id="h1a" href="/home">まいぽけっと</a>
                     </h1>
-                    <nav class="an-fadeD2" id="top_nav">
-                        <a class="tnav" href="/home/customerform">お問い合わせ</a>
+                    <nav class="an-fadeD2" id="top_nav">                        
                         {{ user_admin|safe }}
                     </nav>
                 </header>
                 <article class="main_contents">
-                    <h2 class="an-fadeU" id="title1">お問い合わせ -送信完了-</h2>
-                    <a>送信内容：</a><br>
-                    <a>{{form_1_content}}</a><br>
-                    <h2 class="an-fadeU" id="title1">今後の対応について</h2>
-                    <div class="cover">
-                        <p class="text">
-                            平素よりスーパーまいぽけっとをご利用いただきありがとうございます。<br>
-                            この度はお問い合わせを頂きまして、誠にありがとうございます。<br>
-                            2営業日以内に弊社担当よりご連絡いたしますので、しばらくお待ちください。
-                        </p>
-                        トップページへは<a class="lsb" href="/home">こちら</a><br>
-                    </div>
+                    <h2 class="an-fadeU" id="title1">ログアウトしました</h2>
+                    トップページへは<a class="lsb" href="/">こちら</a><br>
                 </article>
                 <a class="cp_btn button">
                     <img class="photo_bt" src="../static/img/top.png">
@@ -54,4 +44,4 @@
             </div>
         </body>
     </html>
-    
+
