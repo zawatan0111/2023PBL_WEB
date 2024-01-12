@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <body>
+        <table class="search_table">
+            <tbody>
+                <tr id="">
+                    <td width="30%"></td>
+                    <td width="18%"></td>
+                    <td width="18%"></td>
+                    <td width="14%"></td>
+                    <td width="20%" align="right"></td>
+                </tr>
+                
+                {% for results in search_result %}
+                    <tr align="center">{% for result in results %}
+                        <td>{{ result|safe }}</td>
+                    {% endfor %}</tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+        {{ msg|safe }}     
+    </body>
+</html>

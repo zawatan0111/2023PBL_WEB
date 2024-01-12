@@ -16,86 +16,61 @@
             <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" type="text/javascript"></script>
             <script src="../static/js/button.js" type="text/javascript"></script>
             <script src="../static/js/scroll.js" type="text/javascript"></script>
-            <title>まいぽけっと -TOP-</title>
+            <title>まいぽけっと -MAYPAGE-</title>
         </head>
         <body>
             <div id="container">
                 <header>
                     <h1 class="an-fadeD">
-                        <a id="h1a" href="/home">まいぽけっと</a>
+                        <a id="h1a" href="../home">まいぽけっと</a>
                     </h1>
-                    <nav class="an-fadeD2" id="top_nav">                        
+                    <nav class="an-fadeD2" id="top_nav">
+                        <a class="tnav" href="/logout" id="msgtopdown">ログアウト</a>
                         <a class="tnav" href="/home/customerform">お問い合わせ</a>
                         {{ user_admin|safe }}
                     </nav>
                 </header>
-                <nav class="leftsidebar section lsb_ul">
-                    <h2 class="an-fadeL1" id="title2">スタッフ<br>募集中</h2>
-                    <h2 class="an-fadeL1" id="title2">カード会員<br>募集中</h2>
-                    <h2 class="an-fadeL1" id="title2">お買い得商品を豊富に取り揃え中</h2>
-                </nav>
+                <article class="main_contents_mypage">
+                    <h2 class="an-fadeU" id="title1_member">MyPageへようこそ</h2>
+                    アカウントID：{{ user_email|safe }} でログイン中
+                    <h2 class="an-fadeU" id="title1_member">買い物履歴</h2>
 
-                <article class="main_contents">
-                    <h2 class="an-fadeU" id="title1">商品検索</h2>
-                    まいぽけっとのお買い得商品を表示中！！<br>
-
-                    <form class="search_container" action="/search_result" name="search_form" onsubmit="return false;" method="get">
-                        <input type="text" name="searchkey"
-                        placeholder="「検索」で一覧を表示">
-                        <input type="submit" value="&#xf002" id="searchkeyholder">
-                       
-                    </form>
-                    検索結果を表示中：<br>
-                   
-                        <table id="search_table_top">
-                            <tbody>
-                                <tr align="center">
-                                    <th width="30%" align="center">商品名</th>
-                                    <th width="18%">税抜価格</th>
-                                    <th width="18%">税込価格</th>
-                                    <th width="14%">在庫数</th>
-                                    <th width="20%">バーコード</th>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <div id="result">
-                            <table class="search_table">
-                                <tbody>
-                                    <tr id="">
-                                        <td width="30%"></td>
-                                        <td width="18%"></td>
-                                        <td width="18%"></td>
-                                        <td width="14%"></td>
-                                        <td width="20%" align="right"></td>
-                                    </tr>
-                                    {% for items_all in items_all %}
-                                    <tr align="center">{% for items in items_all %}
-                                        <td>{{ items|safe }}</td>
-                                        {% endfor %}</tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-
-                    <script>
-                        $("#searchkeyholder").on("click", function(){
-                            $("#result").text("検索中...");
-                            console.log("成功");
-                            $.ajax({
-                                url: "search_result",
-                                type: "GET",
-                                dataType: "html",
-                                data: $("form").serializeArray(),
-                                timeout: 10000
-                            })
-                            .done(function(data){
-                                $("#result").html(data)
-                            });
-                        });
-                    </script>
-
+                    <table id="search_table_top_member">
+                        <tbody>
+                            <tr align="center">
+                                <th width="15%">来店日</th>
+                                <th width="15%">購入時間</th>
+                                <th width="10%">合計<br>金額</th>
+                                <th width="10%">支払<br>方法</th>
+                                <th width="10%">発生P</th>
+                                <th width="10%">残高P</th>
+                                <th width="10%">発生P券</th>
+                                <th width="10%">レジNO.</th>
+                                <th width="10%">レシートNO.</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="search_table">
+                        <tbody>
+                            <tr id="">
+                                <td width="15%"></td>
+                                <td width="15%"></td>
+                                <td width="10%"></td>
+                                <td width="10%"></td>
+                                <td width="10%"></td>
+                                <td width="10%"></td>
+                                <td width="10%"></td>
+                                <td width="10%"></td>
+                                <td width="10%"></td>
+                            </tr>
+                            {% for receipts_all in receipts_all %}
+                            <tr align="center">{% for receipts in receipts_all %}
+                                <td>{{ receipts|safe }}</td>
+                                {% endfor %}</tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
                 </article>
-
                 <div class="rightsidebar section lsb_ul">
                     <div class="an-fadeR2 section info_table1_2">
                         <table>
@@ -167,7 +142,7 @@
                                 </tr>
                                 <tr>
                                     <th><a class="lsb">2024/01/01</a></th>
-                                    <td><a class="lsb">あけまして<br>おめでとうございます</a></td>                   
+                                    <td><a class="lsb">あけましておめでとうございます</a></td>                   
                                 </tr>
                                 <tr>
                                     <th><a class="lsb">2023/12/31</a></th>
@@ -223,7 +198,7 @@
                             </tbody>
                         </table>
                     </div>
-                </div>    
+                </div>
                 <a class="cp_btn button">
                     <img class="photo_bt" src="../static/img/top.png">
                 </a>
@@ -231,8 +206,7 @@
                     <br>
                     <hr>
                     <address class="address">Copyright &copy; 2024 MYPOCKET.</address>
-                </footer>
+                </footer>    
             </div>
         </body>
     </html>
-    

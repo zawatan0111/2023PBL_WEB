@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="description" content="スーパー まいぽけっと">
+            <meta name="author" content="zawatan0111">
+            <meta name="copyright" content="zawatan0111">
+            <meta http-equiv="Content-Style-Type" content="text/css" />
+            <link rel="shortcut icon" href="../static/img/favicon.ico" type="image/x-icon">
+            <link rel="apple-touch-icon" href="../static/img/apple-touch-icon-180x180.png" sizes="180x180">
+            <link rel="icon" type="image/png" href="../static/img/android-chrome-192x192.png" sizes="192x192">
+            <link rel="stylesheet" type="text/css" media="all" href="../static/css/MYPOCKET.css">
+            <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.css" rel="stylesheet">
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js" type="text/javascript"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="../static/js/button.js" type="text/javascript"></script>
+            <script src="../static/js/scroll.js" type="text/javascript"></script>
+            <title>まいぽけっと -管理者-</title>
+        </head>
+        <body>
+            <div id="container">
+                <header>
+                    <h1 class="an-fadeD">
+                        <a id="h1a" href="../home">まいぽけっと</a>
+                    </h1>
+                    <nav class="an-fadeD2" id="top_nav">
+                        <a class="tnav" href="/logout" id="msgtopdown">ログアウト</a>
+                        <a class="tnav" href="/home/customerform">お問い合わせ</a>
+                        {{ user_admin|safe }}
+                    </nav>
+                </header>
+                <article class="main_contents_admin">
+                    <h2 class="an-fadeU" id="title1_admin">管理者ページ</h2>
+                アカウントID：{{ user_email|safe }} でログイン中
+                <h2 class="an-fadeU" id="title1_admin">お問い合わせ一覧</h2>
+
+                    <table id="search_table_top_admin">
+                        <tbody>
+                            <tr align="center">
+                                <th width="15%">ID</th>
+                                <th width="15%">ユーザ名</th>
+                                <th width="70%">お問い合わせ内容</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="search_table">
+                        <tbody>
+                            <tr id="">
+                                <td width="15%"></td>
+                                <td width="15%"></td>
+                                <td width="70%"></td>
+                            </tr>
+                            {% for cforms_all in cforms_all %}
+                            <tr align="center">{% for cforms in cforms_all %}
+                                <td>{{ cforms|safe }}</td>
+                                {% endfor %}</tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                {% for data in data %} 
+                <li>
+                    {% for data in data %}
+                        {{ data|safe }}
+                </li>
+                    {% endfor %}
+                {% endfor %}
+                </article>
+                <a class="cp_btn button">
+                    <img class="photo_bt" src="../static/img/top.png">
+                </a>
+                <footer>
+                    <br>
+                    <hr>
+                    <address class="address">Copyright &copy; 2024 MYPOCKET.</address>
+                </footer>
+            </div>
+            
+        </body>
+    </html>
