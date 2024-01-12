@@ -194,6 +194,7 @@ def admin():
                
                return render_template("admin.html",
                                       user_name=html.escape(session["user_name"]+" さん"),
+                                      user_email=html.escape(session["user_email"]),
                                       cforms_all=cforms_all,
                                       user_admin="<a class=\"tnav tnav_hover\" href=\"/home/admin\">" + session["user_name"] + " さん" + "</a>")
           else:
